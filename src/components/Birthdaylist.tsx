@@ -4,13 +4,27 @@ import { useState } from 'react'
 function Birthdaylist() {
 
   const [startDate, setStartDate] = useState(new Date());
-  const [data, setData] = useState("[]")
+  const [data, setData] = useState([]);
 
   function submit(e: any) {
     e.preventDefault();
-    console.log(data)
+   
 
   }
+  const filterddata = data.filter((item: string) => item =="birthday}")
+  console.log(filterddata)
+
+
+  function update(filterddata: string | number | Date) {
+    var today = new Date();
+    var birthDate = new Date(filterddata);
+    var birthday = today.getFullYear() - birthDate.getFullYear();
+    
+    }
+    
+    
+}
+  console.log(data)
   return (
     <div>
       <form onSubmit={submit} >
@@ -24,9 +38,9 @@ function Birthdaylist() {
           showYearPicker
           dateFormat="yyyy"
           yearItemNumber={50}
-        </div>
+        </div> 
 
-        <button >update </button>
+        <button onClick={update}  >update </button>
 
 
       </form>
@@ -35,3 +49,4 @@ function Birthdaylist() {
 }
 
 export default Birthdaylist
+
